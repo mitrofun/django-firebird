@@ -40,5 +40,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
     ],
     zip_safe=False,
-    install_requires=[],
+    install_requires=['django==2.0'],
 )
