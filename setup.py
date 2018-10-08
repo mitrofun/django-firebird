@@ -1,3 +1,5 @@
+import os
+import re
 from setuptools import setup, find_packages
 
 with open('README.rst') as readme:
@@ -11,7 +13,16 @@ standard_exclude_directories = ('.*', 'CVS', '_darcs', './build', './dist', 'EGG
 
 
 # Dynamically calculate the version based on firebird.VERSION.
-version = __import__('firebird').get_version()
+# version = __import__('firebird').get_version()
+
+def get_version(package):
+    """
+    Return package version as listed in `__version__` in `init.py`.
+    """
+    init_py = open(os.path.join(package, '__init__.py')).read()
+    return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py)
+
+version = get_version('firebird')
 
 setup(
     name='django-firebird',
@@ -40,5 +51,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
     ],
     zip_safe=False,
-    install_requires=['django==2.0'],
+    install_requires=[],
 )
