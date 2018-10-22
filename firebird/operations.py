@@ -234,6 +234,8 @@ class DatabaseOperations(BaseDatabaseOperations):
         return value
 
     def convert_binaryfield_value(self, value, expression, connection, context):
+        if isinstance(value, Database.BlobReader):
+            value = value.read()
         if value is not None:
             value = force_bytes(value)
         return value
