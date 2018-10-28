@@ -2,27 +2,15 @@
 django-firebird
 ===============
 
-.. image:: https://img.shields.io/pypi/v/django-firebird.svg
-    :target: https://pypi.python.org/pypi/django-firebird
-
-.. image:: https://caniusepython3.com/project/django-firebird.svg
-    :target: https://caniusepython3.com/project/django-firebird
-
-
 Firebird SQL backend for django
 -------------------------------
 
 **Repo Note**:
-The ``master`` branch is an *in development* version of django-firebird. This may be substantially different from the latest
-`release of django-firebird`_
 
-.. _release of django-firebird: https://github.com/maxirobaina/django-firebird/releases
+This project is fork (django-firebird)[https://github.com/maxirobaina/django-firebird]
 
 
 This version of django-firebird is working with *fbd* [1], therefore it will work only with firebird 2.x and later.
-The stable version corresponds with django 1.11 and live into ``stable/1.11.x`` branch.
-The current master branch of this repository is being developed under django 2.x. For previous Django stable version check
-the branch list of this repository.
 *fbd* is the official stable python-firebird driver, also it has support for python 3.
 
 
@@ -31,8 +19,8 @@ the branch list of this repository.
 
 Requirements
 ------------
-  * Python 2.7+ or Python 3.x
-  * Django 1.11.x
+  * Python Python 3.x
+  * Django 2.0
   * fdb (http://pypi.python.org/pypi/fdb/)
 
 Instalation
@@ -40,31 +28,8 @@ Instalation
 
 **Using pip**
 
-    pip install django-firebird
+    pip install -e git+https://github.com/mitrofun/django-firebird#egg=django-firebird
 
-**From repository**
-
-    git clone git://github.com/maxirobaina/django-firebird.git
-
-    cd django-firebird
-
-    sudo python setup.py install
-
-**Manual Instalation**
-
-Instructions for Ubuntu/Debian
-I assume you have installed django from source with python setup.py install
-
-
-    cd /usr/local/lib/python2.7/dist-packages
-
-    sudo git clone git://github.com/maxirobaina/django-firebird.git
-
-    sudo ln -s django-firebird/firebird firebird
-
-    cd /usr/local/lib/python2.7/dist-packages/django/db/backends
-
-    sudo ln -s /usr/local/lib/python2.7/dist-packages/django-firebird/firebird
 
 Configuration
 -------------
@@ -89,18 +54,6 @@ Known bugs and issues
 * Some database migrations doesn't work by default. Sometimes is better make intermediate migrations for solve problems.
 * Some Query Expressions doesn't work by default. We need to make some workaround, ie: Use Cast().
 * Combined duration expressions need more research. No all combination of expressions works.
-
-
-Contributing
-------------
-
-Code and issues is in GitHub:
-
-    https://github.com/maxirobaina/django-firebird
-
-We also have a mailing list:
-
-    http://groups.google.com/group/django-firebird-dev
 
 
 Legacy driver
